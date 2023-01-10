@@ -57,6 +57,10 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "comments",
+    pattern: "{controller=Comments}/{action=Create}/{id?}");
+
+app.MapControllerRoute(
     name: "DiscussiomNew",
     pattern: "Discussion",
     defaults: new {controller="Discussion",action="Index"});

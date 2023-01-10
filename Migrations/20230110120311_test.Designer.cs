@@ -12,8 +12,8 @@ using Sports.Data;
 namespace Sports.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230110101704_users1")]
-    partial class users1
+    [Migration("20230110120311_test")]
+    partial class test
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

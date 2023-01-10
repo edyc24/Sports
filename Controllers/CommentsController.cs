@@ -21,11 +21,10 @@ namespace Sports.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("DiscussionId","Content")] Comment comment)
+        public async Task<IActionResult> Create(Comment comment)
         {
                 var user = await _userManager.GetUserAsync(User);
                 comment.Author = user;
-                comment.DiscussionId = comment.DiscussionId;
                 _context.Add(comment);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Details", "Discussions", new { id = comment.DiscussionId });

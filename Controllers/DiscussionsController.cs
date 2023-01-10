@@ -53,6 +53,19 @@ namespace Sports.Controllers
             return View(discussion);
         }
 
+        // Search
+        [Authorize]
+        public async Task<IActionResult> ShowSearchForm()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
+        {
+            return View("Index",await _context.Discussions.Where(j => j.Title.Contains(SearchPhrase)).ToListAsync());
+        }
+
         // GET: Discussions/Create
         [Authorize]
         public IActionResult Create()
